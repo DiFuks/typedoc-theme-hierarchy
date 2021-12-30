@@ -6,7 +6,7 @@
 
 <a href="https://github.com/DiFuks/typedoc-theme-hierarchy">GitHub</a>
 
-![plot](https://github.com/DiFuks/fuks-blog/raw/master/lib/typedoc-theme-hierarchy/.github/images/demo.jpg)
+![plot](https://raw.githubusercontent.com/DiFuks/typedoc-theme-hierarchy/master/.github/images/demo.jpg)
 
 ## Installing
 

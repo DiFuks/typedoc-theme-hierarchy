@@ -1,6 +1,6 @@
 .idea
 src
-assets
+/assets
 .github
 .eslintignore
 .eslintrc
