@@ -2,7 +2,6 @@ import { Configuration } from 'webpack';
 import * as path from 'node:path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 
 const config: Configuration = {
   mode: 'production',
@@ -37,7 +36,6 @@ const config: Configuration = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    plugins: [new TsconfigPathsPlugin()],
   },
 };
 
