@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "https://github.com/DiFuks/typedoc-theme-hierarchy",
