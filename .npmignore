@@ -1,0 +1,7 @@
+src
+assets
+.github
+.eslintignore
+.eslintrc
+tsconfig*
+yarn.lock

@@ -1,0 +1,125 @@
+body {
+    font-size: 1rem;
+    background: #f5f5f5;
+}
+
+.tree {
+    position: relative;
+    background: white;
+    margin-top: 20px;
+    padding: 30px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+
+.tree span {
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.4px;
+    color: #a8a8a8;
+}
+
+.tree .fa-folder-open, .tree .fa-folder {
+    color: #007bff;
+}
+
+.tree .fa-html5 {
+    color: #f21f10;
+}
+
+.tree ul {
+    padding-left: 5px;
+    list-style: none;
+    margin: 0;
+}
+
+.tree ul li {
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.tree ul li:before {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 10px;
+    height: 1px;
+    margin: auto;
+    content: "";
+    background-color: #666;
+}
+
+.tree ul li:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    content: "";
+    background-color: #666;
+}
+
+.tree ul li:last-child:after {
+    height: 15px;
+}
+
+.tree ul a {
+    cursor: pointer;
+}
+
+.category:not([data-id="root"]) {
+    display: none;
+
+}
+
+.category:not([data-id="root"])._open {
+    display: block;
+}
+
+.category__title {
+    cursor: pointer;
+}
+
+.category__title, .category__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.category__title:hover, .category__link:hover {
+    text-decoration: underline;
+}
+
+.category__link._active {
+    color: inherit;
+}
+
+.category__link.tsd-kind-icon {
+    padding-left: 0;
+    text-indent: 0;
+}
+
+.category__title .fa {
+    margin-right: 6px;
+}
+
+.category__link--ts:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 7px 2px 0;
+    background-image: url(../images/ts.svg);
+    vertical-align: middle;
+    flex-shrink: 0;
+}
