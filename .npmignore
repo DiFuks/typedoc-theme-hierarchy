@@ -1,3 +1,4 @@
+.idea
 src
 assets
 .github
@@ -5,3 +6,4 @@ assets
 .eslintrc
 tsconfig*
 yarn.lock
+webpack.config.ts
