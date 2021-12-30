@@ -8,7 +8,7 @@ import { Renderer } from 'typedoc/dist/lib/output/renderer';
 import { copy } from 'fs-extra';
 import path from 'node:path';
 
-import { navigation } from '@plugin/partials/navigation';
+import { navigation } from '../partials/navigation';
 
 class OverrideThemeContext extends DefaultThemeRenderContext {
   public constructor(theme: DefaultTheme, options: Options) {

@@ -5,6 +5,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-relative-imports/no-relative-imports": "off",
     "react/no-unknown-property": "off",
     "react/jsx-key": "off",
     "react/display-name": "off"

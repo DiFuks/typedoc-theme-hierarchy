@@ -13,10 +13,6 @@
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment",
-    "isolatedModules": false,
-    "paths": {
-      "@plugin/*": ["src/*"],
-      "@assets/*": ["assets/*"]
-    }
+    "isolatedModules": false
   },
 }
