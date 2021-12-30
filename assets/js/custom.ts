@@ -1,5 +1,6 @@
-import '@assets/css/custom.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import '../css/custom.css';
 
 for (const item of document.querySelectorAll<HTMLElement>(
   '.js-category-title:not([data-id="root"])',
