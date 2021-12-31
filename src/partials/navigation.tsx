@@ -38,7 +38,7 @@ const Navigation = ({
     {Object.entries(categories).map(([key, item]) => (
       <li>
         <span class='js-category-title category__title' data-id={item.id}>
-          <i class='fa fa-folder js-category-icon' data-id={item.id} />
+          <div class='category__folder js-category-icon' data-id={item.id} />
           {key}
         </span>
         <Navigation

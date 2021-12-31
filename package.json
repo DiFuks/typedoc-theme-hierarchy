@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "https://github.com/DiFuks/typedoc-theme-hierarchy",
@@ -8,12 +8,12 @@
     "typedoc-theme"
   ],
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
     "@types/fs-extra": "^9.0.13",
     "@types/mini-css-extract-plugin": "^2.4.0",
     "@types/webpack": "^5.28.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.3.1",
     "eslint": "^8.5.0",
     "eslint-config-fuks": "^1.0.6",
     "mini-css-extract-plugin": "^2.4.5",

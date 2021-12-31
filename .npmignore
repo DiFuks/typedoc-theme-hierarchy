@@ -7,3 +7,4 @@ src
 tsconfig*
 yarn.lock
 webpack.config.ts
+docs

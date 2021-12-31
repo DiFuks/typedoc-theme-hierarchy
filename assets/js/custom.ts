@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
 import '../css/custom.css';
 
 for (const item of document.querySelectorAll<HTMLElement>(
@@ -44,7 +42,7 @@ for (const item of document.querySelectorAll<HTMLElement>(
     parent.classList.add('_open');
     parent.parentNode
       ?.querySelector('.js-category-icon')
-      ?.classList.add('fa-folder-open');
+      ?.classList.add('category__folder--open');
 
     activeElement = parent.parentNode as HTMLElement;
   }
