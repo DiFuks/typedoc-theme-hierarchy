@@ -1,29 +1,20 @@
-body {
-  font-size: 1rem;
-  background: #f5f5f5;
-}
-
 .tree {
   position: relative;
-  background: white;
+  background: var(--color-panel);
   margin-top: 20px;
   padding: 30px;
   font-family: "Roboto Mono", monospace;
   font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: var(--color-text);
 }
 
 .tree span {
   font-size: 13px;
   font-style: italic;
   letter-spacing: 0.4px;
-  color: #a8a8a8;
-}
-
-.tree .fa-html5 {
-  color: #f21f10;
+  color: var(--color-text-aside);
 }
 
 .tree ul {
