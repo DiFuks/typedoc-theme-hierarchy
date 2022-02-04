@@ -6,7 +6,8 @@ import {
 } from 'typedoc';
 import { Renderer } from 'typedoc/dist/lib/output/renderer';
 import { copy } from 'fs-extra';
-import path from 'node:path';
+// eslint-disable-next-line unicorn/prefer-node-protocol
+import path from 'path';
 
 import { navigation } from '../partials/navigation';
 
