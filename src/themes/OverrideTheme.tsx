@@ -29,10 +29,8 @@ export class OverrideTheme extends DefaultTheme {
       const out = this.application.options.getValue('out');
 
       await copy(
-        path.join(
-          process.cwd(),
-          '/node_modules/typedoc-theme-hierarchy/dist/assets',
-        ),
+        // eslint-disable-next-line unicorn/prefer-module
+        path.join(require.resolve('typedoc-theme-hierarchy'), '../assets'),
         path.join(out, '/assets'),
       );
     });
