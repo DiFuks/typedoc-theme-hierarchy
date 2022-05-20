@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "https://github.com/DiFuks/typedoc-theme-hierarchy",
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "webpack && tsc --project tsconfig.build.json",
-    "lint": "tsc --noEmit && eslint \"./**/*.{ts,tsx,js}\"",
+    "lint": "eslint \"./**/*.{ts,tsx,js}\"",
     "prepublishOnly": "yarn lint && yarn build"
   },
   "dependencies": {

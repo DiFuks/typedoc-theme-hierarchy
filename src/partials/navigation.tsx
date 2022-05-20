@@ -125,6 +125,9 @@ const Navigation = ({
   </ul>
 );
 
+const getName = (item: DeclarationReflection): string =>
+  item.sources?.[0]?.fileName || '';
+
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
   const result: ICategory = {
     items: [],
@@ -133,7 +136,7 @@ const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
   };
 
   for (const item of values) {
-    const titleSplit = (item.name || '').split('/');
+    const titleSplit = getName(item).split('/');
 
     addToCategory(result, item, titleSplit, 0);
   }
@@ -153,15 +156,9 @@ const addToCategory = (
       category.items = [];
     }
 
-    const fileName = item?.sources?.[0]?.file?.name;
-
-    if (!fileName) {
-      return;
-    }
-
     category.items.push({
       ...item,
-      title: fileName,
+      title: titleSplit[idx],
     } as IItem);
 
     return;
