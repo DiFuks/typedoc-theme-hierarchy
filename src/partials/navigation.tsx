@@ -21,7 +21,56 @@ export const navigation =
 
     return (
       <div class='tree'>
-        <Navigation {...categories} urlTo={urlTo} />
+        <div class='tree-config'>
+          <button
+            class='tree-config__button tree-config__button--expand js-tree-expand'
+            title='Expand All'
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              x='0px'
+              y='0px'
+              viewBox='0 0 490.72 490.72'
+              fill='currentColor'
+            >
+              <path d='M480.027,288.027H10.693c-5.867,0-10.667,4.8-10.667,10.667c0,5.867,4.8,10.667,10.667,10.667h213.333v144.96l-45.76-45.76c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827l64,64c4.16,4.16,10.88,4.16,15.04,0l64-64c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0l-45.867,45.76V309.36h234.667c5.867,0,10.667-4.8,10.667-10.667C490.693,292.827,485.893,288.027,480.027,288.027z' />
+              <path d='M10.693,224.027h469.333c5.867,0,10.667-4.8,10.667-10.667c0-5.867-4.8-10.667-10.667-10.667H245.36V36.4l45.76,45.76c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827l-64-64c-4.16-4.16-10.88-4.16-15.04,0l-64,64c-4.053,4.267-3.947,10.987,0.213,15.04c4.16,3.947,10.667,3.947,14.827,0l45.867-45.76v166.293H10.693c-5.867,0-10.667,4.8-10.667,10.667C0.027,219.227,4.827,224.027,10.693,224.027z' />
+            </svg>
+          </button>
+          <button
+            class='tree-config__button tree-config__button--collapse js-tree-collapse'
+            title='Collapse All'
+          >
+            <svg
+              viewBox='0 0 16 16'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='currentColor'
+            >
+              <path
+                fill-rule='evenodd'
+                d='M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z'
+              />
+            </svg>
+          </button>
+          <button
+            class='tree-config__button tree-config__button--target js-tree-target'
+            title='Scroll to current file'
+          >
+            <svg
+              viewBox='0 0 24 24'
+              xmlns='http://www.w3.org/2000/svg'
+              fill='currentColor'
+            >
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-ignore */}
+              <circle cx='12' cy='12' r='3' />
+              <path d='M13 4.069V2h-2v2.069A8.008 8.008 0 0 0 4.069 11H2v2h2.069A8.007 8.007 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z' />
+            </svg>
+          </button>
+        </div>
+        <div class='tree-content'>
+          <Navigation {...categories} urlTo={urlTo} />
+        </div>
       </div>
     );
   };
@@ -38,7 +87,7 @@ const Navigation = ({
     {Object.entries(categories).map(([key, item]) => (
       <li>
         <span class='js-category-title category__title' data-id={item.id}>
-          <div class='category__folder js-category-icon' data-id={item.id} />
+          <div class='category__folder' data-id={item.id} />
           {key}
         </span>
         <Navigation

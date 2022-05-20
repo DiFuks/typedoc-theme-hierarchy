@@ -1,29 +1,55 @@
 .tree {
-  position: relative;
-  background: var(--color-panel);
   margin-top: 20px;
-  padding: 30px;
+  background: var(--color-panel);
   font-family: "Roboto Mono", monospace;
+}
+
+.tree-config {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+  padding: 8px;
+}
+
+.tree-config__button {
+  border: 0;
+  cursor: pointer;
+  height: 20px;
+  padding: 0;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-toolbar-text);
+  opacity: 0.8;
+}
+
+.tree-config__button:hover {
+  opacity: 0.9;
+}
+
+.tree-content {
+  position: relative;
+  padding: 0 20px 20px;
   font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-text);
 }
 
-.tree span {
+.tree-content span {
   font-size: 13px;
-  font-style: italic;
   letter-spacing: 0.4px;
-  color: var(--color-text-aside);
 }
 
-.tree ul {
+.tree-content ul {
   padding-left: 5px;
   list-style: none;
   margin: 0;
 }
 
-.tree ul li {
+.tree-content ul li {
   position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -33,7 +59,7 @@
   box-sizing: border-box;
 }
 
-.tree ul li:before {
+.tree-content ul li:before {
   position: absolute;
   top: 15px;
   left: 0;
@@ -44,7 +70,7 @@
   background-color: #666;
 }
 
-.tree ul li:after {
+.tree-content ul li:after {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -55,11 +81,11 @@
   background-color: #666;
 }
 
-.tree ul li:last-child:after {
+.tree-content ul li:last-child:after {
   height: 15px;
 }
 
-.tree ul a {
+.tree-content ul a {
   cursor: pointer;
 }
 
@@ -74,6 +100,7 @@
 
 .category__title {
   cursor: pointer;
+  color: var(--color-text-aside);
 }
 
 .category__title, .category__link {
@@ -87,16 +114,16 @@
   text-decoration: underline;
 }
 
+.category__title--open .category__folder {
+  background: url("../images/folder-open.svg");
+}
+
 .category__folder {
   display: inline-block;
   height: 15px;
   width: 15px;
   background: url("../images/folder.svg");
   margin-right: 6px;
-}
-
-.category__folder--open {
-  background: url("../images/folder-open.svg");
 }
 
 .category__link._active {
