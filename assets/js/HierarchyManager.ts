@@ -169,9 +169,9 @@ export class HierarchyManager {
 
     activeElement.classList.add('_active');
 
-    let parent = activeElement?.closest<HTMLElement>(this.listSelector);
+    let parent = activeElement.closest<HTMLElement>(this.listSelector);
 
-    // eslint-disable-next-line no-constant-condition
+    // eslint-disable-next-line no-constant-condition,@typescript-eslint/no-unnecessary-condition
     while (true) {
       if (!parent) {
         break;
@@ -181,7 +181,7 @@ export class HierarchyManager {
 
       this.openPath(id);
 
-      parent = (parent.parentNode as HTMLElement)?.closest<HTMLElement>(
+      parent = (parent.parentNode as HTMLElement).closest<HTMLElement>(
         this.listSelector,
       );
     }

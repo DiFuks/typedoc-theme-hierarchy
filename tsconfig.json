@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "target": "es2016",
     "module": "commonjs",
@@ -15,4 +16,5 @@
     "jsxFragmentFactory": "JSX.Fragment",
     "isolatedModules": false
   },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", ".eslintrc.js"]
 }

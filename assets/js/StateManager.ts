@@ -6,7 +6,9 @@ export class StateManager {
   public constructor() {
     const lsOpenedPathState = localStorage.getItem('opened-path-state');
 
-    this.openedPaths = lsOpenedPathState ? JSON.parse(lsOpenedPathState) : [];
+    this.openedPaths = lsOpenedPathState
+      ? (JSON.parse(lsOpenedPathState) as string[])
+      : [];
   }
 
   /**

@@ -1,10 +1,12 @@
 # Typedoc Theme Hierarchy
 
+Hierarchy theme for [typedoc](https://typedoc.org/)
+
 ---
 
-<a href="https://www.npmjs.com/package/typedoc-theme-hierarchy">npm</a>
-
-<a href="https://github.com/DiFuks/typedoc-theme-hierarchy">GitHub</a>
+[![verdaccio (latest)](https://img.shields.io/npm/v/typedoc-theme-hierarchy)](https://www.npmjs.com/package/typedoc-theme-hierarchy)
+[![verdaccio (downloads)](https://img.shields.io/npm/dw/typedoc-theme-hierarchy)](https://www.npmjs.com/package/typedoc-theme-hierarchy)
+[![verdaccio (stars)](https://img.shields.io/github/stars/difuks/typedoc-theme-hierarchy?style=social)](https://github.com/DiFuks/typedoc-theme-hierarchy)
 
 ![plot](https://raw.githubusercontent.com/DiFuks/typedoc-theme-hierarchy/master/.github/images/demo.jpg)
 
@@ -20,6 +22,22 @@ npm i typedoc-theme-hierarchy -D
 
 ---
 
+From terminal:
+
 ```bash
-typedoc --entryPoints src --entryPointStrategy expand --out docs --plugin ./node_modules/typedoc-theme-hierarchy/dist/index.js --theme hierarchy
+typedoc --entryPoints src --entryPointStrategy expand --out docs --plugin typedoc-theme-hierarchy --theme hierarchy
+```
+
+From `typedoc.json`:
+
+```json
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "Expand",
+  "out": "public/docs",
+  "plugin": ["typedoc-theme-hierarchy"],
+  "theme": "hierarchy",
+  "tsconfig": "./tsconfig.json",
+  "name": "Project name"
+}
 ```

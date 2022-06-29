@@ -151,11 +151,6 @@ const addToCategory = (
   idx: number,
 ): void => {
   if (idx === titleSplit.length - 1) {
-    if (!category.items) {
-      // eslint-disable-next-line no-param-reassign
-      category.items = [];
-    }
-
     category.items.push({
       ...item,
       title: titleSplit[idx],

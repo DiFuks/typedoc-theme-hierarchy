@@ -1,23 +1,10 @@
-import {
-  DefaultTheme,
-  DefaultThemeRenderContext,
-  Options,
-  RendererEvent,
-} from 'typedoc';
-import { Renderer } from 'typedoc/dist/lib/output/renderer';
-import { copy } from 'fs-extra';
-// eslint-disable-next-line unicorn/prefer-node-protocol
 import path from 'path';
 
-import { navigation } from '../partials/navigation';
+import { copy } from 'fs-extra';
+import { DefaultTheme, RendererEvent } from 'typedoc';
+import { Renderer } from 'typedoc/dist/lib/output/renderer';
 
-class OverrideThemeContext extends DefaultThemeRenderContext {
-  public constructor(theme: DefaultTheme, options: Options) {
-    super(theme, options);
-
-    this.navigation = navigation(this.urlTo.bind(this));
-  }
-}
+import { OverrideThemeContext } from './OverrideThemeContext';
 
 export class OverrideTheme extends DefaultTheme {
   private _contextCache?: OverrideThemeContext;

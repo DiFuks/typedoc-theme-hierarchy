@@ -1,5 +1,6 @@
-import { Configuration } from 'webpack';
 import * as path from 'node:path';
+
+import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';

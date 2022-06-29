@@ -1,4 +1,11 @@
 dist
-node_modules
 tsconfig.*tsbuildinfo
 docs
+.idea/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
