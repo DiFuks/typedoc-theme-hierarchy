@@ -124,6 +124,7 @@
   width: 15px;
   background: url("../images/folder.svg");
   margin-right: 6px;
+  flex-shrink: 0;
 }
 
 .category__link._active {
