@@ -1,13 +1,19 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "git@github.com:DiFuks/typedoc-theme-hierarchy.git",
   "homepage": "https://github.com/DiFuks/typedoc-theme-hierarchy",
+  "description": "Hierarchy theme for typedoc",
   "keywords": [
     "typedoc-theme"
   ],
+  "author": {
+    "name": "Dmitry Fuks",
+    "email": "difuks@gmail.com",
+    "url": "https://github.com/DiFuks"
+  },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/fs-extra": "^9.0.13",
