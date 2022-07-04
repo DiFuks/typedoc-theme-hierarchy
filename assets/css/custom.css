@@ -131,11 +131,6 @@
   color: inherit;
 }
 
-.category__link.tsd-kind-icon {
-  padding-left: 0;
-  text-indent: 0;
-}
-
 .category__link--ts:before {
   content: "";
   display: inline-block;

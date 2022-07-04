@@ -463,6 +463,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/trace-mapping@npm:^0.3.7":
+  version: 0.3.14
+  resolution: "@jridgewell/trace-mapping@npm:0.3.14::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40jridgewell%2Ftrace-mapping%2F-%2Ftrace-mapping-0.3.14.tgz"
+  dependencies:
+    "@jridgewell/resolve-uri": ^3.0.3
+    "@jridgewell/sourcemap-codec": ^1.4.10
+  checksum: b9537b9630ffb631aef9651a085fe361881cde1772cd482c257fe3c78c8fd5388d681f504a9c9fe1081b1c05e8f75edf55ee10fdb58d92bbaa8dbf6a7bd6b18c
+  languageName: node
+  linkType: hard
+
 "@jridgewell/trace-mapping@npm:^0.3.9":
   version: 0.3.14
   resolution: "@jridgewell/trace-mapping@npm:0.3.14"
@@ -3396,6 +3406,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-worker@npm:^27.4.5":
+  version: 27.5.1
+  resolution: "jest-worker@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjest-worker%2F-%2Fjest-worker-27.5.1.tgz"
+  dependencies:
+    "@types/node": "*"
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: 98cd68b696781caed61c983a3ee30bf880b5bd021c01d98f47b143d4362b85d0737f8523761e2713d45e18b4f9a2b98af1eaee77afade4111bb65c77d6f7c980
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -5725,6 +5746,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"terser-webpack-plugin@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "terser-webpack-plugin@npm:5.3.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fterser-webpack-plugin%2F-%2Fterser-webpack-plugin-5.3.3.tgz"
+  dependencies:
+    "@jridgewell/trace-mapping": ^0.3.7
+    jest-worker: ^27.4.5
+    schema-utils: ^3.1.1
+    serialize-javascript: ^6.0.0
+    terser: ^5.7.2
+  peerDependencies:
+    webpack: ^5.1.0
+  peerDependenciesMeta:
+    "@swc/core":
+      optional: true
+    esbuild:
+      optional: true
+    uglify-js:
+      optional: true
+  checksum: 4b8d508d8a0f6e604addb286975f1fa670f8c3964a67abc03a7cfcfd4cdeca4b07dda6655e1c4425427fb62e4d2b0ca59d84f1b2cd83262ff73616d5d3ccdeb5
+  languageName: node
+  linkType: hard
+
 "terser@npm:^5.7.2":
   version: 5.10.0
   resolution: "terser@npm:5.10.0"
@@ -5929,20 +5972,21 @@ __metadata:
     eslint-config-fuks: ^1.6.7
     fs-extra: ^10.0.0
     mini-css-extract-plugin: ^2.4.5
+    terser-webpack-plugin: ^5.3.3
     ts-loader: ^9.2.6
     ts-node: ^10.8.1
-    typedoc: ^0.23.2
+    typedoc: ^0.23.5
     typescript: ^4.7.4
     webpack: ^5.65.0
     webpack-cli: ^4.9.1
   peerDependencies:
-    typedoc: ^0.23.2 || ^0.22.9
+    typedoc: ^0.23.5
   languageName: unknown
   linkType: soft
 
-"typedoc@npm:^0.23.2":
-  version: 0.23.4
-  resolution: "typedoc@npm:0.23.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypedoc%2F-%2Ftypedoc-0.23.4.tgz"
+"typedoc@npm:^0.23.5":
+  version: 0.23.5
+  resolution: "typedoc@npm:0.23.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypedoc%2F-%2Ftypedoc-0.23.5.tgz"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.16
@@ -5952,7 +5996,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: 22cf3cecc83af7cd644cee147970c3ca2f3162b8277d1d22aa10252731feafd4f14f4246e7eed3eae190186cd4eddd955befcd326a56590489ea33fe85bf1081
+  checksum: a8c0aed855f588a2c008e5520e59e4a59d48d14cd483d0030fc3345bed3757aac8618659c59b4087c221aa2f7a7875b9f30c7a4a966e43ec969cd8905d6d8b67
   languageName: node
   linkType: hard
 

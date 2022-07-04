@@ -4,6 +4,7 @@ import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
 const config: Configuration = {
   mode: 'production',
@@ -19,7 +20,8 @@ const config: Configuration = {
     new CleanWebpackPlugin(),
   ],
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
   module: {
     rules: [

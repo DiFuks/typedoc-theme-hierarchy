@@ -5,6 +5,6 @@ export class OverrideThemeContext extends DefaultThemeRenderContext {
   public constructor(theme: DefaultTheme, options: Options) {
     super(theme, options);
 
-    this.navigation = navigation(this.urlTo.bind(this));
+    this.navigation = navigation(this);
   }
 }

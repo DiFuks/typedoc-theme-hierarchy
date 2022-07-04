@@ -1,4 +1,4 @@
-import { JSX, PageEvent, Reflection } from 'typedoc';
+import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
 
 interface IItem extends DeclarationReflection {
@@ -15,7 +15,7 @@ interface ICategory {
  * Рендерит панель навигации.
  */
 export const navigation =
-  (urlTo: (reflection: Reflection) => string | undefined) =>
+  (context: DefaultThemeRenderContext) =>
   (props: PageEvent<Reflection>): JSX.Element => {
     const categories = formatFileHierarchy(props.model.project.children || []);
 
@@ -69,7 +69,7 @@ export const navigation =
           </button>
         </div>
         <div class='tree-content'>
-          <Navigation {...categories} urlTo={urlTo} />
+          <Navigation {...categories} context={context} />
         </div>
       </div>
     );
@@ -79,9 +79,9 @@ const Navigation = ({
   id,
   categories,
   items,
-  urlTo,
+  context,
 }: ICategory & {
-  urlTo: (reflection: Reflection) => string | undefined;
+  context: DefaultThemeRenderContext;
 }): JSX.Element => (
   <ul class='js-category-list category' data-id={id}>
     {Object.entries(categories).map(([key, item]) => (
@@ -94,7 +94,7 @@ const Navigation = ({
           id={item.id}
           categories={item.categories}
           items={item.items}
-          urlTo={urlTo}
+          context={context}
         />
       </li>
     ))}
@@ -102,7 +102,7 @@ const Navigation = ({
       <li>
         <a
           class='category__link js-category-link category__link--ts'
-          href={urlTo(item)}
+          href={context.urlTo(item)}
           data-id={item.url && `/${item.url}`}
         >
           {item.title}
@@ -111,10 +111,11 @@ const Navigation = ({
           {item.children?.map((subItem) => (
             <li class={subItem.cssClasses}>
               <a
-                class='category__link tsd-kind-icon js-category-link'
-                href={urlTo(subItem)}
+                class='category__link js-category-link'
+                href={context.urlTo(subItem)}
                 data-id={subItem.url && `/${subItem.url}`}
               >
+                {context.icons[subItem.kind]()}
                 {subItem.name}
               </a>
             </li>
