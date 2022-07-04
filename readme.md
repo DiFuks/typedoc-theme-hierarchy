@@ -15,7 +15,7 @@ Hierarchy theme for [typedoc](https://typedoc.org/)
 ---
 
 ```bash
-# For typedoc >=0.22.18 <=0.23.4
+# For typedoc >=0.22.0 <=0.23.4
 npm i typedoc-theme-hierarchy@^1.3.5 -D
 
 # For typedoc ^0.23.5
