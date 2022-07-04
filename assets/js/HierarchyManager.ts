@@ -157,7 +157,10 @@ export class HierarchyManager {
   }
 
   private openCurrentPath(): Element | null {
-    const pathname = window.location.pathname.replace('/docs', '');
+    const pathnameSplit = window.location.pathname.split('/');
+    const pathname = `/${pathnameSplit[pathnameSplit.length - 2] || ''}/${
+      pathnameSplit[pathnameSplit.length - 1] || ''
+    }`;
 
     const activeElement = document.querySelector(
       `.js-category-link[data-id="${pathname}"]`,
