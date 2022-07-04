@@ -1284,7 +1284,7 @@ __metadata:
 
 "brace-expansion@npm:^2.0.1":
   version: 2.0.1
-  resolution: "brace-expansion@npm:2.0.1"
+  resolution: "brace-expansion@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbrace-expansion%2F-%2Fbrace-expansion-2.0.1.tgz"
   dependencies:
     balanced-match: ^1.0.0
   checksum: a61e7cd2e8a8505e9f0036b3b6108ba5e926b4b55089eeb5550cd04a471fe216c96d4fe7e4c7f995c728c554ae20ddfc4244cad10aef255e72b62930afd233d1
@@ -3487,7 +3487,7 @@ __metadata:
 
 "jsonc-parser@npm:^3.0.0":
   version: 3.0.0
-  resolution: "jsonc-parser@npm:3.0.0"
+  resolution: "jsonc-parser@npm:3.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjsonc-parser%2F-%2Fjsonc-parser-3.0.0.tgz"
   checksum: 1df2326f1f9688de30c70ff19c5b2a83ba3b89a1036160da79821d1361090775e9db502dc57a67c11b56e1186fc1ed70b887f25c5febf9a3ec4f91435836c99d
   languageName: node
   linkType: hard
@@ -3652,7 +3652,7 @@ __metadata:
 
 "lunr@npm:^2.3.9":
   version: 2.3.9
-  resolution: "lunr@npm:2.3.9"
+  resolution: "lunr@npm:2.3.9::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Flunr%2F-%2Flunr-2.3.9.tgz"
   checksum: 176719e24fcce7d3cf1baccce9dd5633cd8bdc1f41ebe6a180112e5ee99d80373fe2454f5d4624d437e5a8319698ca6837b9950566e15d2cae5f2a543a3db4b8
   languageName: node
   linkType: hard
@@ -3682,7 +3682,7 @@ __metadata:
 
 "marked@npm:^4.0.16":
   version: 4.0.17
-  resolution: "marked@npm:4.0.17"
+  resolution: "marked@npm:4.0.17::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fmarked%2F-%2Fmarked-4.0.17.tgz"
   bin:
     marked: bin/marked.js
   checksum: 33a3c43a20b47bddaf045a59bfc7c3d41cc321931cc663ed231ca3b5b3b195fb2ac2973e687c2afd65b79539c14619baa07d19793f70130160f0af80c06d9b3a
@@ -4094,7 +4094,7 @@ __metadata:
 
 "minimatch@npm:^5.1.0":
   version: 5.1.0
-  resolution: "minimatch@npm:5.1.0"
+  resolution: "minimatch@npm:5.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminimatch%2F-%2Fminimatch-5.1.0.tgz"
   dependencies:
     brace-expansion: ^2.0.1
   checksum: 15ce53d31a06361e8b7a629501b5c75491bc2b59712d53e802b1987121d91b433d73fcc5be92974fde66b2b51d8fb28d75a9ae900d249feb792bb1ba2a4f0a90
@@ -5415,7 +5415,7 @@ __metadata:
 
 "shiki@npm:^0.10.1":
   version: 0.10.1
-  resolution: "shiki@npm:0.10.1"
+  resolution: "shiki@npm:0.10.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fshiki%2F-%2Fshiki-0.10.1.tgz"
   dependencies:
     jsonc-parser: ^3.0.0
     vscode-oniguruma: ^1.6.1
@@ -5936,13 +5936,13 @@ __metadata:
     webpack: ^5.65.0
     webpack-cli: ^4.9.1
   peerDependencies:
-    typedoc: ^0.23.2
+    typedoc: ^0.23.2 || ^0.22.9
   languageName: unknown
   linkType: soft
 
 "typedoc@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "typedoc@npm:0.23.2"
+  version: 0.23.4
+  resolution: "typedoc@npm:0.23.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypedoc%2F-%2Ftypedoc-0.23.4.tgz"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.0.16
@@ -5952,7 +5952,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: 2c93349b5f1987d32171130a428d36ecbe31e215d87e06707d837f9465eced70b19eec669939c67e8ef0e02852faf4ee1f4ba113dab7fee980171af082e27583
+  checksum: 22cf3cecc83af7cd644cee147970c3ca2f3162b8277d1d22aa10252731feafd4f14f4246e7eed3eae190186cd4eddd955befcd326a56590489ea33fe85bf1081
   languageName: node
   linkType: hard
 
@@ -6196,14 +6196,14 @@ __metadata:
 
 "vscode-oniguruma@npm:^1.6.1":
   version: 1.6.2
-  resolution: "vscode-oniguruma@npm:1.6.2"
+  resolution: "vscode-oniguruma@npm:1.6.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fvscode-oniguruma%2F-%2Fvscode-oniguruma-1.6.2.tgz"
   checksum: 6b754acdafd5b68242ea5938bb00a32effc16c77f471d4f0f337d879d0e8e592622998e2441f42d9a7ff799c1593f31c11f26ca8d9bf9917e3ca881d3c1f3e19
   languageName: node
   linkType: hard
 
 "vscode-textmate@npm:5.2.0":
   version: 5.2.0
-  resolution: "vscode-textmate@npm:5.2.0"
+  resolution: "vscode-textmate@npm:5.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fvscode-textmate%2F-%2Fvscode-textmate-5.2.0.tgz"
   checksum: 5449b42d451080f6f3649b66948f4b5ee4643c4e88cfe3558a3b31c84c78060cfdd288c4958c1690eaa5cd65d09992fa6b7c3bef9d4aa72b3651054a04624d20
   languageName: node
   linkType: hard
