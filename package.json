@@ -38,7 +38,7 @@
     "webpack-cli": "^4.9.1"
   },
   "peerDependencies": {
-    "typedoc": ">=0.22.9 <=0.23.4"
+    "typedoc": ">=0.22.0 <=0.23.4"
   },
   "scripts": {
     "build": "webpack && tsc --project tsconfig.build.json",
