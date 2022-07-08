@@ -18,7 +18,7 @@ Hierarchy theme for [typedoc](https://typedoc.org/)
 # For typedoc >=0.22.0 <=0.23.4
 npm i typedoc-theme-hierarchy@^1.3.5 -D
 
-# For typedoc ^0.23.5
+# For typedoc 0.23.5
 npm i typedoc-theme-hierarchy@^2.0.0 -D
 ```
 

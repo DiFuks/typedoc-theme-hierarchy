@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "git@github.com:DiFuks/typedoc-theme-hierarchy.git",
@@ -38,7 +38,7 @@
     "webpack-cli": "^4.9.1"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.5"
+    "typedoc": "0.23.5"
   },
   "scripts": {
     "build": "webpack && tsc --project tsconfig.build.json",
