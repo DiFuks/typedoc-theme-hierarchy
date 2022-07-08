@@ -20,6 +20,9 @@ npm i typedoc-theme-hierarchy@^1.3.5 -D
 
 # For typedoc 0.23.5
 npm i typedoc-theme-hierarchy@^2.0.0 -D
+
+# For typedoc ^0.23.6
+npm i typedoc-theme-hierarchy@^3.0.0 -D
 ```
 
 ## Usage

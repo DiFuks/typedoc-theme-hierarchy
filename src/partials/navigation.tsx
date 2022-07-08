@@ -21,6 +21,7 @@ export const navigation =
 
     return (
       <div class='tree'>
+        <div class='tree-settings'>{context.settings()}</div>
         <div class='tree-config'>
           <button
             class='tree-config__button tree-config__button--expand js-tree-expand'
