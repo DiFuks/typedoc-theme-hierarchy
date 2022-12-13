@@ -5980,7 +5980,7 @@ __metadata:
     webpack: ^5.65.0
     webpack-cli: ^4.9.1
   peerDependencies:
-    typedoc: ^0.23.5
+    typedoc: ^0.23.6
   languageName: unknown
   linkType: soft
 
