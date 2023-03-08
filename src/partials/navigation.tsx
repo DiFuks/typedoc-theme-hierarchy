@@ -1,9 +1,26 @@
-import { DefaultThemeRenderContext, JSX, PageEvent, Reflection } from 'typedoc';
+import * as process from 'process';
+
+import {
+  DefaultThemeRenderContext,
+  JSX,
+  PageEvent,
+  Reflection,
+  ReflectionKind,
+} from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
 
-interface IItem extends DeclarationReflection {
+interface IDeclarationItem {
   title: string;
+  children: DeclarationReflection[];
+  url?: string;
 }
+
+interface IVirtualFileItem extends DeclarationReflection {
+  title: string;
+  children: DeclarationReflection[];
+}
+
+type IItem = IDeclarationItem | IVirtualFileItem;
 
 interface ICategory {
   id: string;
@@ -101,34 +118,73 @@ const Navigation = ({
     ))}
     {items.map((item) => (
       <li>
-        <a
-          class='category__link js-category-link category__link--ts'
-          href={context.urlTo(item)}
-          data-id={item.url && `/${item.url}`}
-        >
-          {item.title}
-        </a>
-        <ul>
-          {item.children?.map((subItem) => (
-            <li class={subItem.cssClasses}>
-              <a
-                class='category__link js-category-link'
-                href={context.urlTo(subItem)}
-                data-id={subItem.url && `/${subItem.url}`}
-              >
-                {context.icons[subItem.kind]()}
-                {subItem.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <Item {...item} context={context} />
       </li>
     ))}
   </ul>
 );
 
-const getName = (item: DeclarationReflection): string =>
-  item.sources?.[0]?.fileName || '';
+const Item = (
+  item: IItem & {
+    context: DefaultThemeRenderContext;
+  },
+): JSX.Element => {
+  if ('id' in item) {
+    return (
+      <>
+        <a
+          class='category__link js-category-link category__link--ts'
+          href={item.context.urlTo(item)}
+          data-id={item.url && `/${item.url}`}
+        >
+          {item.title}
+        </a>
+        <ul>
+          {item.children.map((subItem) => (
+            <li class={subItem.cssClasses}>
+              <a
+                class='category__link js-category-link'
+                href={item.context.urlTo(subItem)}
+                data-id={subItem.url && `/${subItem.url}`}
+              >
+                {item.context.icons[subItem.kind]()}
+                {subItem.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span class='category__link category__link--disable js-category-link category__link--ts'>
+        {item.title}
+      </span>
+      <ul>
+        {item.children.map((subItem) => (
+          <li class={subItem.cssClasses}>
+            <a
+              class='category__link js-category-link'
+              href={item.context.urlTo(subItem)}
+              data-id={subItem.url && `/${subItem.url}`}
+            >
+              {item.context.icons[subItem.kind]()}
+              {subItem.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+const getName = (item: DeclarationReflection): string => {
+  const fullFileName = item.sources?.[0]?.fullFileName || '';
+
+  return fullFileName.replace(`${process.cwd()}`, '').slice(1);
+};
 
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
   const result: ICategory = {
@@ -153,10 +209,32 @@ const addToCategory = (
   idx: number,
 ): void => {
   if (idx === titleSplit.length - 1) {
-    category.items.push({
-      ...item,
-      title: titleSplit[idx],
-    } as IItem);
+    // Если элементом является модуль (файл), то файлом считается он. Актуально для Expand мода
+    if (item.kind === ReflectionKind.Module) {
+      category.items.push({
+        ...item,
+        title: titleSplit[idx] || '',
+        children: item.children || [],
+      });
+
+      return;
+    }
+
+    const existsFile = category.items.find(
+      (existItem) => existItem.title === titleSplit[idx],
+    );
+
+    // Если элементом не является модуль, то файлом считается виртуальный файл. Страница для него будет недоступна. Актуально для одной точки входа
+    if (!existsFile) {
+      category.items.push({
+        title: titleSplit[idx] ?? '',
+        children: [item],
+      });
+
+      return;
+    }
+
+    existsFile.children.push(item);
 
     return;
   }

@@ -5,8 +5,6 @@ export class HierarchyManager {
 
   private readonly titleSelector = '.js-category-title';
 
-  private readonly titleOpenedClass = 'category__title--open';
-
   private readonly listSelector = '.js-category-list';
 
   /**
@@ -34,9 +32,7 @@ export class HierarchyManager {
     }
 
     list.classList.add('_open');
-    list.parentNode
-      ?.querySelector(this.titleSelector)
-      ?.classList.add(this.titleOpenedClass);
+    list.parentNode?.querySelector(this.titleSelector)?.classList.add('_open');
   }
 
   private closePath(id: string): void {
@@ -51,7 +47,7 @@ export class HierarchyManager {
     list.classList.remove('_open');
     list.parentNode
       ?.querySelector(this.titleSelector)
-      ?.classList.remove(this.titleOpenedClass);
+      ?.classList.remove('_open');
 
     this.stateManager.removeOpenedPath(id);
   }

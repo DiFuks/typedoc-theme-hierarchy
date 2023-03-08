@@ -110,11 +110,11 @@
   flex-shrink: 0;
 }
 
-.category__title:hover, .category__link:hover {
+a.category__title:hover, a.category__link:hover {
   text-decoration: underline;
 }
 
-.category__title--open .category__folder {
+.category__title._open .category__folder {
   background: url("../images/folder-open.svg");
 }
 
