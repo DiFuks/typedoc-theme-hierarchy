@@ -13,7 +13,9 @@ export class OverrideTheme extends DefaultTheme {
     super(renderer);
 
     this.listenTo(this.owner, RendererEvent.END, async () => {
-      const out = this.application.options.getValue('out');
+      const out =
+        this.application.options.getValue('out') ||
+        path.join(process.cwd(), './docs');
 
       await copy(
         // eslint-disable-next-line unicorn/prefer-module

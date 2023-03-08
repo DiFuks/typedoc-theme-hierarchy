@@ -1,0 +1,43 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      NPM_DIFUKS_TOKEN: ${{ secrets.NPM_DIFUKS_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install modules
+        run: yarn install
+
+      - name: Build libs
+        run: yarn build
+
+      - name: Eslint
+        run: yarn lint
+
+      - name: Check packages versions
+        run: yarn version check
+
+      - name: Apply versions
+        run: yarn version apply
+
+      - name: Publish package
+        run: yarn npm publish --tolerate-republish
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: |
+            ci: Release packages
+            
+            [skip ci]
