@@ -13,6 +13,9 @@
     "dist",
     "readme.md"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
+  },
   "author": {
     "name": "Dmitry Fuks",
     "email": "difuks@gmail.com",
