@@ -33,7 +33,7 @@ jobs:
         run: yarn version apply
 
       - name: Publish package
-        run: yarn npm publish --tolerate-republish
+        run: yarn npm publish --access public --tolerate-republish
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
