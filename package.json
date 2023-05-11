@@ -7,7 +7,8 @@
   "homepage": "https://github.com/DiFuks/typedoc-theme-hierarchy",
   "description": "Hierarchy theme for typedoc",
   "keywords": [
-    "typedoc-theme", "typedocplugin"
+    "typedoc-theme",
+    "typedocplugin"
   ],
   "files": [
     "dist",
