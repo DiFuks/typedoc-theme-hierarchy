@@ -5983,18 +5983,18 @@ __metadata:
     terser-webpack-plugin: ^5.3.3
     ts-loader: ^9.2.6
     ts-node: ^10.8.1
-    typedoc: 0.24.0
+    typedoc: ^0.23.6
     typescript: ^4.7.4
     webpack: ^5.65.0
     webpack-cli: ^4.9.1
   peerDependencies:
-    typedoc: ^0.23.6 || ^0.24.0
+    typedoc: ^0.23.6
   languageName: unknown
   linkType: soft
 
-"typedoc@npm:0.24.0":
-  version: 0.24.0
-  resolution: "typedoc@npm:0.24.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypedoc%2F-%2Ftypedoc-0.24.0.tgz"
+"typedoc@npm:^0.23.6":
+  version: 0.23.28
+  resolution: "typedoc@npm:0.23.28::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypedoc%2F-%2Ftypedoc-0.23.28.tgz"
   dependencies:
     lunr: ^2.3.9
     marked: ^4.2.12
@@ -6004,7 +6004,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
   bin:
     typedoc: bin/typedoc
-  checksum: 2c53037a8bc448713453e2f314265be058adff64710a83bd0d50a65ac72d4117265d89609c40da46fcd3e35c833f1641ec7c2ecb4b59cc29b8f46e4da5e4d50a
+  checksum: 40eb4e207aac1b734e09400cf03f543642cc7b11000895198dd5a0d3166315759ccf4ac30a2915153597c5c186101c72bac2f1fc12b428184a9274d3a0e44c5e
   languageName: node
   linkType: hard
 
