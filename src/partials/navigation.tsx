@@ -38,7 +38,6 @@ export const navigation =
 
     return (
       <div class='tree'>
-        <div class='tree-settings'>{context.settings()}</div>
         <div class='tree-config'>
           <button
             class='tree-config__button tree-config__button--expand js-tree-expand'
@@ -141,7 +140,7 @@ const Item = (
         </a>
         <ul>
           {item.children.map((subItem) => (
-            <li class={subItem.cssClasses}>
+            <li>
               <a
                 class='category__link js-category-link'
                 href={item.context.urlTo(subItem)}
@@ -164,7 +163,7 @@ const Item = (
       </span>
       <ul>
         {item.children.map((subItem) => (
-          <li class={subItem.cssClasses}>
+          <li>
             <a
               class='category__link js-category-link'
               href={item.context.urlTo(subItem)}
