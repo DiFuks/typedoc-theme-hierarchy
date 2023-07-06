@@ -8,6 +8,7 @@ import {
   ReflectionKind,
 } from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
+import path from 'path';
 
 interface IDeclarationItem {
   title: string;
@@ -181,8 +182,10 @@ const Item = (
 
 const getName = (item: DeclarationReflection): string => {
   const fullFileName = item.sources?.[0]?.fullFileName || '';
+  const targetFileName = fullFileName.replaceAll(path.sep, '/');
+  const currentDirName = process.cwd().replaceAll(path.sep, '/');
 
-  return fullFileName.replace(`${process.cwd()}`, '').slice(1);
+  return targetFileName.replace(`${currentDirName}`, '').slice(1);
 };
 
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
