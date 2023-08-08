@@ -1,7 +1,6 @@
 .tree {
   margin-top: 20px;
   background: var(--color-panel);
-  font-family: "Roboto Mono", monospace;
 }
 
 .tree-config {

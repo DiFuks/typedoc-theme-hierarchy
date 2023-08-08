@@ -15,12 +15,12 @@ const config = {
   mode: 'production',
   entry: './assets/js/custom.ts',
   output: {
-    filename: 'custom.js',
+    filename: 'hierarchy.js',
     path: path.resolve(process.cwd(), 'dist/assets'),
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'custom.css',
+      filename: 'hierarchy.css',
     }),
     new CleanWebpackPlugin(),
   ],
