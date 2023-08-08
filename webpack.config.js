@@ -1,12 +1,17 @@
-import * as path from 'node:path';
+const path = require('node:path');
 
-import { Configuration } from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+/**
+ * @typedef {import('webpack').Configuration} Configuration
+ */
 
-const config: Configuration = {
+/**
+ * @type {Configuration}
+ */
+const config = {
   mode: 'production',
   entry: './assets/js/custom.ts',
   output: {
@@ -29,9 +34,6 @@ const config: Configuration = {
         test: /\.tsx?$/,
         use: {
           loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-          },
         },
         exclude: /node_modules/,
       },
@@ -49,4 +51,4 @@ const config: Configuration = {
 /**
  * Описывает webpack-конфиг.
  */
-export default config;
+module.exports = config;

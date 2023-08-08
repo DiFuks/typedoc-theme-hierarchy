@@ -1,4 +1,5 @@
 import * as process from 'process';
+import path from 'path';
 
 import {
   DefaultThemeRenderContext,
@@ -8,7 +9,6 @@ import {
   ReflectionKind,
 } from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
-import path from 'path';
 
 interface IDeclarationItem {
   title: string;
