@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKEN }}
           fetch-depth: 0
 
-      - name: Cache turbo build setup
+      - name: Cache yarn
         uses: actions/cache@v3
         with:
           path: |
