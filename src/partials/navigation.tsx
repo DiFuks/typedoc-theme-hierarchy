@@ -8,6 +8,7 @@ import {
   ReflectionKind,
 } from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
+import path from 'path';
 
 interface IDeclarationItem {
   title: string;
@@ -38,7 +39,6 @@ export const navigation =
 
     return (
       <div class='tree'>
-        <div class='tree-settings'>{context.settings()}</div>
         <div class='tree-config'>
           <button
             class='tree-config__button tree-config__button--expand js-tree-expand'
@@ -141,7 +141,7 @@ const Item = (
         </a>
         <ul>
           {item.children.map((subItem) => (
-            <li class={subItem.cssClasses}>
+            <li>
               <a
                 class='category__link js-category-link'
                 href={item.context.urlTo(subItem)}
@@ -164,7 +164,7 @@ const Item = (
       </span>
       <ul>
         {item.children.map((subItem) => (
-          <li class={subItem.cssClasses}>
+          <li>
             <a
               class='category__link js-category-link'
               href={item.context.urlTo(subItem)}
@@ -182,8 +182,10 @@ const Item = (
 
 const getName = (item: DeclarationReflection): string => {
   const fullFileName = item.sources?.[0]?.fullFileName || '';
+  const targetFileName = fullFileName.replaceAll(path.sep, '/');
+  const currentDirName = process.cwd().replaceAll(path.sep, '/');
 
-  return fullFileName.replace(`${process.cwd()}`, '').slice(1);
+  return targetFileName.replace(`${currentDirName}`, '').slice(1);
 };
 
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {

@@ -1,7 +1,7 @@
 import path from 'path';
 
 import { copy } from 'fs-extra';
-import { DefaultTheme, RendererEvent } from 'typedoc';
+import { DefaultTheme, PageEvent, Reflection, RendererEvent } from 'typedoc';
 import { Renderer } from 'typedoc/dist/lib/output/renderer';
 
 import { OverrideThemeContext } from './OverrideThemeContext';
@@ -28,9 +28,12 @@ export class OverrideTheme extends DefaultTheme {
   /**
    * Переопределяет стандартный контекст.
    */
-  public override getRenderContext(): OverrideThemeContext {
+  public override getRenderContext(
+    page: PageEvent<Reflection>,
+  ): OverrideThemeContext {
     this._contextCache ||= new OverrideThemeContext(
       this,
+      page,
       this.application.options,
     );
 

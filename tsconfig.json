@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable"],
+    "lib": ["DOM", "DOM.Iterable", "ES2021.String"],
     "baseUrl": ".",
     "target": "es2016",
     "module": "commonjs",

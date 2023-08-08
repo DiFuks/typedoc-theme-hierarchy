@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "repository": "git@github.com:DiFuks/typedoc-theme-hierarchy.git",
@@ -33,16 +33,17 @@
     "eslint": "^8.18.0",
     "eslint-config-fuks": "^1.6.7",
     "mini-css-extract-plugin": "^2.4.5",
+    "path": "^0.12.7",
     "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.8.1",
-    "typedoc": "^0.23.6",
+    "typedoc": "^0.24.8",
     "typescript": "^4.7.4",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.6 || ^0.24.0"
+    "typedoc": "^0.24.0"
   },
   "scripts": {
     "build": "webpack && tsc --project tsconfig.build.json",
