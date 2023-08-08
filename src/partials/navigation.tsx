@@ -185,7 +185,7 @@ const getName = (item: DeclarationReflection): string => {
   const targetFileName = fullFileName.replaceAll(path.sep, '/');
   const currentDirName = process.cwd().replaceAll(path.sep, '/');
 
-  return targetFileName.replace(`${currentDirName}`, '').slice(1);
+  return targetFileName.replace(currentDirName, '').slice(1);
 };
 
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
