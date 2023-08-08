@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "repository": "git@github.com:DiFuks/typedoc-theme-hierarchy.git",
