@@ -1,4 +1,5 @@
 import * as process from 'process';
+import path from 'path';
 
 import {
   DefaultThemeRenderContext,
@@ -181,8 +182,10 @@ const Item = (
 
 const getName = (item: DeclarationReflection): string => {
   const fullFileName = item.sources?.[0]?.fullFileName || '';
+  const targetFileName = fullFileName.replaceAll(path.sep, '/');
+  const currentDirName = process.cwd().replaceAll(path.sep, '/');
 
-  return fullFileName.replace(`${process.cwd()}`, '').slice(1);
+  return targetFileName.replace(currentDirName, '').slice(1);
 };
 
 const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
