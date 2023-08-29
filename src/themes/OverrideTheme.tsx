@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { copy } from 'fs-extra';
+import fse from 'fs-extra';
 import { DefaultTheme, PageEvent, Reflection, RendererEvent } from 'typedoc';
 import { Renderer } from 'typedoc/dist/lib/output/renderer';
 
@@ -12,15 +12,11 @@ export class OverrideTheme extends DefaultTheme {
   public constructor(renderer: Renderer) {
     super(renderer);
 
-    this.listenTo(this.owner, RendererEvent.END, async () => {
-      const out =
-        this.application.options.getValue('out') ||
-        path.join(process.cwd(), './docs');
-
-      await copy(
+    this.listenTo(this.owner, RendererEvent.END, (event: RendererEvent) => {
+      fse.copySync(
         // eslint-disable-next-line unicorn/prefer-module
         path.join(require.resolve('typedoc-theme-hierarchy'), '../assets'),
-        path.join(out, '/assets'),
+        path.join(event.outputDirectory, 'assets'),
       );
     });
   }
