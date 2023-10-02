@@ -7,8 +7,6 @@ import { Renderer } from 'typedoc/dist/lib/output/renderer';
 import { OverrideThemeContext } from './OverrideThemeContext';
 
 export class OverrideTheme extends DefaultTheme {
-  private _contextCache?: OverrideThemeContext;
-
   public constructor(renderer: Renderer) {
     super(renderer);
 
@@ -27,12 +25,10 @@ export class OverrideTheme extends DefaultTheme {
   public override getRenderContext(
     page: PageEvent<Reflection>,
   ): OverrideThemeContext {
-    this._contextCache ||= new OverrideThemeContext(
+    return new OverrideThemeContext(
       this,
       page,
       this.application.options,
     );
-
-    return this._contextCache;
   }
 }
