@@ -25,10 +25,6 @@ export class OverrideTheme extends DefaultTheme {
   public override getRenderContext(
     page: PageEvent<Reflection>,
   ): OverrideThemeContext {
-    return new OverrideThemeContext(
-      this,
-      page,
-      this.application.options,
-    );
+    return new OverrideThemeContext(this, page, this.application.options);
   }
 }
