@@ -1,1 +1,1 @@
-../packages/plugin/LICENSE.md
+./packages/plugin/LICENSE.MD
