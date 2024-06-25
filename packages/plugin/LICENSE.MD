@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2022 Dmitriy Fuks
+Copyright (c) 2024 Dmitriy Fuks
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
