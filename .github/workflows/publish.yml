@@ -16,9 +16,9 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKEN }}
 
       # for yarn version check
-      - if: github.ref != 'refs/heads/main'
+      - if: github.ref != 'refs/heads/master'
         run: |
-          git fetch --unshallow origin main
+          git fetch --unshallow origin master
 
       - uses: actions/setup-node@v4
         with:
@@ -36,19 +36,19 @@ jobs:
         run: yarn lint
 
       - name: Check packages versions
-        if: github.ref != 'refs/heads/main'
+        if: github.ref != 'refs/heads/master'
         run: yarn version check
 
       - name: Apply versions
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: yarn version apply
 
       - name: Publish package
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: yarn npm publish --tolerate-republish
 
       - uses: stefanzweifel/git-auto-commit-action@v5
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         with:
           commit_message: |
             ci: Release packages
@@ -56,14 +56,14 @@ jobs:
             [skip ci]
 
       - name: Get package version
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
         with:
           path: packages/plugin
 
       - uses: stefanzweifel/git-auto-commit-action@v5
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         with:
           tagging_message: v${{ steps.package-version.outputs.current-version }}
           commit_message: |
@@ -72,7 +72,7 @@ jobs:
             [skip ci]
 
       - name: Get pull request info
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         id: pull-request-info
         uses: actions-ecosystem/action-get-merged-pull-request@v1.0.1
         with:
@@ -80,7 +80,7 @@ jobs:
 
       - uses: ncipollo/release-action@v1
         id: create-release
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         with:
           skipIfReleaseExists: true
           makeLatest: true
