@@ -17,6 +17,8 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-underscore-dangle': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
   },
   overrides: [
     {

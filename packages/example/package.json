@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "scripts": {
+    "build": "tsc",
+    "doc": "typedoc && http-server public/docs"
+  },
+  "devDependencies": {
+    "http-server": "14.1.1",
+    "typedoc": "0.26.2",
+    "typedoc-theme-hierarchy": "workspace:*",
+    "typescript": "5.2.2"
+  }
+}
