@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "outDir": "./dist",
+    "strict": false,
+    "noEmit": false,
+    "skipLibCheck": true,
+  },
+}

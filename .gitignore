@@ -4,6 +4,7 @@ docs
 .idea/
 .pnp.*
 .yarn/*
+node_modules
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
