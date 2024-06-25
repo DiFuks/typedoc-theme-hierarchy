@@ -43,8 +43,7 @@
   },
   "scripts": {
     "build": "webpack && tsc --project tsconfig.build.json",
-    "lint": "eslint \"./**/*.{ts,tsx,js}\"",
-    "prepublishOnly": "yarn lint && yarn build"
+    "lint": "eslint \"./**/*.{ts,tsx,js}\""
   },
   "dependencies": {
     "fs-extra": "11.1.1"
