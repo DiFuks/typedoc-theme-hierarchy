@@ -1,190 +1,171 @@
 import { StateManager } from './StateManager';
 
 export class HierarchyManager {
-  private readonly stateManager = new StateManager();
+	private readonly stateManager = new StateManager();
 
-  private readonly titleSelector = '.js-category-title';
+	private readonly titleSelector = `.js-category-title`;
 
-  private readonly listSelector = '.js-category-list';
+	private readonly listSelector = `.js-category-list`;
 
-  /**
-   * Инициализирует иерархию.
-   */
-  public init(): void {
-    this.addListeners();
-    this.initSaved();
-    this.openCurrentPath();
-  }
+	public init(): void {
+		this.addListeners();
+		this.initSaved();
+		this.openCurrentPath();
+	}
 
-  private openPathAndSave(id: string): void {
-    this.openPath(id);
+	private openPathAndSave(id: string): void {
+		this.openPath(id);
 
-    this.stateManager.addOpenedPath(id);
-  }
+		this.stateManager.addOpenedPath(id);
+	}
 
-  private openPath(id: string): void {
-    const list = document.querySelector(
-      `${this.listSelector}[data-id="${id}"]`,
-    );
+	private openPath(id: string): void {
+		const list = document.querySelector(`${this.listSelector}[data-id="${id}"]`);
 
-    if (!list) {
-      return;
-    }
+		if (!list) {
+			return;
+		}
 
-    list.classList.add('_open');
-    list.parentNode?.querySelector(this.titleSelector)?.classList.add('_open');
-  }
+		list.classList.add(`_open`);
+		list.parentNode?.querySelector(this.titleSelector)?.classList.add(`_open`);
+	}
 
-  private closePath(id: string): void {
-    const list = document.querySelector(
-      `${this.listSelector}[data-id="${id}"]`,
-    );
+	private closePath(id: string): void {
+		const list = document.querySelector(`${this.listSelector}[data-id="${id}"]`);
 
-    if (!list) {
-      return;
-    }
+		if (!list) {
+			return;
+		}
 
-    list.classList.remove('_open');
-    list.parentNode
-      ?.querySelector(this.titleSelector)
-      ?.classList.remove('_open');
+		list.classList.remove(`_open`);
+		list.parentNode?.querySelector(this.titleSelector)?.classList.remove(`_open`);
 
-    this.stateManager.removeOpenedPath(id);
-  }
+		this.stateManager.removeOpenedPath(id);
+	}
 
-  private closePathWithChildren(id: string): void {
-    this.closePath(id);
+	private closePathWithChildren(id: string): void {
+		this.closePath(id);
 
-    const list = document.querySelector(
-      `${this.listSelector}[data-id="${id}"]`,
-    );
+		const list = document.querySelector(`${this.listSelector}[data-id="${id}"]`);
 
-    if (!list) {
-      return;
-    }
+		if (!list) {
+			return;
+		}
 
-    const childLists = list.querySelectorAll<HTMLElement>(this.listSelector);
+		const childLists = list.querySelectorAll<HTMLElement>(this.listSelector);
 
-    for (const item of childLists) {
-      this.closePath(item.dataset.id || '');
-    }
-  }
+		for (const item of childLists) {
+			this.closePath(item.dataset.id || ``);
+		}
+	}
 
-  private togglePath(id: string): void {
-    const list = document.querySelector(
-      `${this.listSelector}[data-id="${id}"]`,
-    );
+	private togglePath(id: string): void {
+		const list = document.querySelector(`${this.listSelector}[data-id="${id}"]`);
 
-    if (!list) {
-      return;
-    }
+		if (!list) {
+			return;
+		}
 
-    if (list.classList.contains('_open')) {
-      this.closePathWithChildren(id);
+		if (list.classList.contains(`_open`)) {
+			this.closePathWithChildren(id);
 
-      return;
-    }
+			return;
+		}
 
-    this.openPathAndSave(id);
-  }
+		this.openPathAndSave(id);
+	}
 
-  private addListeners(): void {
-    const items = document.querySelectorAll<HTMLElement>(
-      '.js-category-title:not([data-id="root"])',
-    );
+	private addListeners(): void {
+		const items = document.querySelectorAll<HTMLElement>(`.js-category-title:not([data-id="root"])`);
 
-    for (const item of items) {
-      item.addEventListener('click', () => {
-        const id = item.dataset.id || '';
+		for (const item of items) {
+			item.addEventListener(`click`, () => {
+				const id = item.dataset.id || ``;
 
-        this.togglePath(id);
-      });
-    }
+				this.togglePath(id);
+			});
+		}
 
-    this.addExpandListener();
-    this.addCollapseListener();
-    this.addTargetListener();
-  }
+		this.addExpandListener();
+		this.addCollapseListener();
+		this.addTargetListener();
+	}
 
-  private addExpandListener(): void {
-    const expandButton = document.querySelector('.js-tree-expand');
+	private addExpandListener(): void {
+		const expandButton = document.querySelector(`.js-tree-expand`);
 
-    expandButton?.addEventListener('click', () => {
-      const items = document.querySelectorAll<HTMLElement>(this.listSelector);
+		expandButton?.addEventListener(`click`, () => {
+			const items = document.querySelectorAll<HTMLElement>(this.listSelector);
 
-      for (const item of items) {
-        const id = item.dataset.id || '';
+			for (const item of items) {
+				const id = item.dataset.id || ``;
 
-        this.openPathAndSave(id);
-      }
-    });
-  }
+				this.openPathAndSave(id);
+			}
+		});
+	}
 
-  private addCollapseListener(): void {
-    const collapseButton = document.querySelector('.js-tree-collapse');
+	private addCollapseListener(): void {
+		const collapseButton = document.querySelector(`.js-tree-collapse`);
 
-    collapseButton?.addEventListener('click', () => {
-      const items = document.querySelectorAll<HTMLElement>(this.listSelector);
+		collapseButton?.addEventListener(`click`, () => {
+			const items = document.querySelectorAll<HTMLElement>(this.listSelector);
 
-      for (const item of items) {
-        const id = item.dataset.id || '';
+			for (const item of items) {
+				const id = item.dataset.id || ``;
 
-        this.closePath(id);
-      }
-    });
-  }
+				this.closePath(id);
+			}
+		});
+	}
 
-  private addTargetListener(): void {
-    const targetButton = document.querySelector('.js-tree-target');
+	private addTargetListener(): void {
+		const targetButton = document.querySelector(`.js-tree-target`);
 
-    targetButton?.addEventListener('click', () => {
-      const targetElement = this.openCurrentPath();
+		targetButton?.addEventListener(`click`, () => {
+			const targetElement = this.openCurrentPath();
 
-      targetElement?.scrollIntoView();
-    });
-  }
+			targetElement?.scrollIntoView();
+		});
+	}
 
-  private initSaved(): void {
-    const savedPaths = this.stateManager.getOpenedPaths();
+	private initSaved(): void {
+		const savedPaths = this.stateManager.getOpenedPaths();
 
-    for (const id of savedPaths) {
-      this.openPath(id);
-    }
-  }
+		for (const id of savedPaths) {
+			this.openPath(id);
+		}
+	}
 
-  private openCurrentPath(): Element | null {
-    const pathnameSplit = window.location.pathname.split('/');
-    const pathname = `/${pathnameSplit[pathnameSplit.length - 2] || ''}/${
-      pathnameSplit[pathnameSplit.length - 1] || ''
-    }`;
+	private openCurrentPath(): Element | null {
+		const pathnameSplit = window.location.pathname.split(`/`);
+		const pathname = `/${pathnameSplit[pathnameSplit.length - 2] || ``}/${
+			pathnameSplit[pathnameSplit.length - 1] || ``
+		}`;
 
-    const activeElement = document.querySelector(
-      `.js-category-link[data-id="${pathname}"]`,
-    );
+		const activeElement = document.querySelector(`.js-category-link[data-id="${pathname}"]`);
 
-    if (!activeElement) {
-      return null;
-    }
+		if (!activeElement) {
+			return null;
+		}
 
-    activeElement.classList.add('_active');
+		activeElement.classList.add(`_active`);
 
-    let parent = activeElement.closest<HTMLElement>(this.listSelector);
+		let parent = activeElement.closest<HTMLElement>(this.listSelector);
 
-    // eslint-disable-next-line no-constant-condition,@typescript-eslint/no-unnecessary-condition
-    while (true) {
-      if (!parent) {
-        break;
-      }
+		// eslint-disable-next-line no-constant-condition,@typescript-eslint/no-unnecessary-condition
+		while (true) {
+			if (!parent) {
+				break;
+			}
 
-      const id = parent.dataset.id || '';
+			const id = parent.dataset.id || ``;
 
-      this.openPath(id);
+			this.openPath(id);
 
-      parent = (parent.parentNode as HTMLElement).closest<HTMLElement>(
-        this.listSelector,
-      );
-    }
+			parent = (parent.parentNode as HTMLElement).closest<HTMLElement>(this.listSelector);
+		}
 
-    return activeElement;
-  }
+		return activeElement;
+	}
 }

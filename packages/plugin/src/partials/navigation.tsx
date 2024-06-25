@@ -223,6 +223,7 @@ const addToCategory = (category: ICategory, item: DeclarationReflection, titleSp
 
 	const categoryToAdd = category.categories[title];
 
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	if (!categoryToAdd) {
 		return;
 	}
