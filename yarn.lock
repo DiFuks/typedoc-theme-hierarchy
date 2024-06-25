@@ -5928,7 +5928,7 @@ __metadata:
     webpack: "npm:5.92.1"
     webpack-cli: "npm:5.1.4"
   peerDependencies:
-    typedoc: ^0.24.0 || ^0.25.0 || ^0.26.0
+    typedoc: ^0.26.0
   languageName: unknown
   linkType: soft
 
