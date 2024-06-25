@@ -14,6 +14,8 @@ Hierarchy theme for [typedoc](https://typedoc.org/)
 
 ![example](https://raw.githubusercontent.com/DiFuks/typedoc-theme-hierarchy/master/.github/images/demo.jpg)
 
+See [example here](https://github.com/DiFuks/typedoc-theme-hierarchy/tree/master/packages/example)
+
 ## Installing
 
 ---
