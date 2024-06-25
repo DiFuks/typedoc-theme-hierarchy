@@ -22,10 +22,10 @@ See [example here](https://github.com/DiFuks/typedoc-theme-hierarchy/tree/master
 
 ```bash
 
-# For typedoc >=0.25.0
+# For typedoc ^0.26.0
 npm i typedoc-theme-hierarchy@^5.0.0 -D
 
-# For typedoc >=0.24.0 <0.25.0
+# For typedoc ^0.24.0 || ^0.25.0
 npm i typedoc-theme-hierarchy@^4.0.0 -D
 
 # For typedoc ^0.23.6
@@ -34,7 +34,7 @@ npm i typedoc-theme-hierarchy@^3.0.0 -D
 # For typedoc 0.23.5
 npm i typedoc-theme-hierarchy@^2.0.0 -D
 
-# For typedoc >=0.22.0 <=0.23.4
+# For typedoc ^0.22.0 || <=0.23.4
 npm i typedoc-theme-hierarchy@^1.3.5 -D
 ```
 
