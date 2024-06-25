@@ -2,19 +2,15 @@
 
 Hierarchy theme for [typedoc](https://typedoc.org/)
 
----
-
-**Requires node ^15**
-
----
-
 [![typedoc-theme-hierarchy (latest)](https://img.shields.io/npm/v/typedoc-theme-hierarchy)](https://www.npmjs.com/package/typedoc-theme-hierarchy)
 [![typedoc-theme-hierarchy (downloads)](https://img.shields.io/npm/dw/typedoc-theme-hierarchy)](https://www.npmjs.com/package/typedoc-theme-hierarchy)
 [![typedoc-theme-hierarchy (stars)](https://img.shields.io/github/stars/difuks/typedoc-theme-hierarchy?style=social)](https://github.com/DiFuks/typedoc-theme-hierarchy)
 
-![example](https://raw.githubusercontent.com/DiFuks/typedoc-theme-hierarchy/master/.github/images/demo.jpg)
-
 See [example here](https://github.com/DiFuks/typedoc-theme-hierarchy/tree/master/packages/example)
+
+The plugin supports only `expand` and `resolve` values for the `entryPointStrategy` option. Support for `packages` is planned for the future. Please create an issue if you need it.
+
+![example](https://raw.githubusercontent.com/DiFuks/typedoc-theme-hierarchy/master/.github/images/demo.jpg)
 
 ## Installing
 
