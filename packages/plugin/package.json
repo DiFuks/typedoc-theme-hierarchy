@@ -51,7 +51,7 @@
     "typedoc": "^0.26.0 || ^0.27.0"
   },
   "scripts": {
-    "build": "webpack && tsup src/index.tsx --external typedoc-theme-hierarchy --dts --format esm,cjs",
+    "build": "webpack && tsup",
     "lint": "eslint \"./**/*.{ts,tsx,js}\""
   },
   "dependencies": {

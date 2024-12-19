@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 // eslint-disable-next-line import/no-default-export
 export default defineConfig([
 	{
-		entry: [`src/index.ts`],
+		entry: [`src/index.tsx`],
 		format: [`cjs`, `esm`],
 		dts: true,
 		external: [`typedoc-theme-hierarchy`, `typedoc`],
