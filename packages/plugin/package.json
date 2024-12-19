@@ -2,7 +2,15 @@
   "name": "typedoc-theme-hierarchy",
   "version": "5.0.3",
   "license": "MIT",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "repository": "git@github.com:DiFuks/typedoc-theme-hierarchy.git",
   "homepage": "https://github.com/DiFuks/typedoc-theme-hierarchy",
   "description": "Hierarchy theme for typedoc",
@@ -33,16 +41,17 @@
     "mini-css-extract-plugin": "^2.4.5",
     "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "^9.4.4",
+    "tsup": "^8.3.5",
     "typedoc": "0.26.2",
     "typescript": "5.5.2",
     "webpack": "5.92.1",
     "webpack-cli": "5.1.4"
   },
   "peerDependencies": {
-    "typedoc": "^0.26.0"
+    "typedoc": "^0.26.0 || ^0.27.0"
   },
   "scripts": {
-    "build": "webpack && tsc --project tsconfig.build.json",
+    "build": "webpack && tsup src/index.tsx --external typedoc-theme-hierarchy --dts --format esm,cjs",
     "lint": "eslint \"./**/*.{ts,tsx,js}\""
   },
   "dependencies": {
