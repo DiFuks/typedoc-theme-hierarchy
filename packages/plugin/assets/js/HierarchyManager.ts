@@ -1,4 +1,4 @@
-import { StateManager } from './StateManager';
+import { StateManager } from './StateManager.js';
 
 export class HierarchyManager {
 	private readonly stateManager = new StateManager();

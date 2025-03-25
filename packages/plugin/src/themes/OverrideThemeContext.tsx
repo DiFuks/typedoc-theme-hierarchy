@@ -1,11 +1,9 @@
-import { type DefaultTheme, DefaultThemeRenderContext, type Options, type PageEvent, type Reflection } from 'typedoc';
+import { DefaultThemeRenderContext, type PageEvent, type Reflection } from 'typedoc';
 
-import { navigation } from '../partials/navigation';
+import { navigation } from '../partials/navigation.js';
 
 export class OverrideThemeContext extends DefaultThemeRenderContext {
-	public constructor(theme: DefaultTheme, page: PageEvent<Reflection>, options: Options) {
-		super(theme, page, options);
-
-		this.navigation = navigation(this);
+	override navigation = (context: PageEvent<Reflection>) => {
+		return navigation(this)(context);
 	}
 }

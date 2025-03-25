@@ -1,9 +1,8 @@
 import fse from 'fs-extra';
 import path from 'path';
-import { DefaultTheme, type PageEvent, type Reflection, RendererEvent } from 'typedoc';
-import { type Renderer } from 'typedoc/dist/lib/output/renderer';
+import { DefaultTheme, type PageEvent, type Reflection, Renderer, RendererEvent } from 'typedoc';
 
-import { OverrideThemeContext } from './OverrideThemeContext';
+import { OverrideThemeContext } from './OverrideThemeContext.js';
 
 export class OverrideTheme extends DefaultTheme {
 	public constructor(renderer: Renderer) {
@@ -18,6 +17,6 @@ export class OverrideTheme extends DefaultTheme {
 	}
 
 	public override getRenderContext(page: PageEvent<Reflection>): OverrideThemeContext {
-		return new OverrideThemeContext(this, page, this.application.options);
+		return new OverrideThemeContext(this.router, this, page, this.application.options);
 	}
 }

@@ -1,7 +1,14 @@
 import path from 'path';
 import * as process from 'process';
-import { type DefaultThemeRenderContext, JSX, type PageEvent, type Reflection, ReflectionKind } from 'typedoc';
-import { type DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
+import {
+	DeclarationReflection,
+	type DefaultThemeRenderContext,
+	JSX,
+	type PageEvent,
+	type Reflection,
+	ReflectionKind,
+} from 'typedoc';
+import { type OverrideThemeContext } from '../themes/OverrideThemeContext.js';
 
 interface IDeclarationItem {
 	title: string;
@@ -23,7 +30,7 @@ interface ICategory {
 }
 
 export const navigation =
-	(context: DefaultThemeRenderContext) =>
+	(context: OverrideThemeContext) =>
 	(props: PageEvent<Reflection>): JSX.Element => {
 		const categories = formatFileHierarchy(props.model.project.children || []);
 

@@ -42,13 +42,13 @@
     "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "^9.4.4",
     "tsup": "^8.3.5",
-    "typedoc": "0.26.2",
-    "typescript": "5.5.2",
+    "typedoc": "0.28.1",
+    "typescript": "5.8.2",
     "webpack": "5.92.1",
     "webpack-cli": "5.1.4"
   },
   "peerDependencies": {
-    "typedoc": "^0.26.0 || ^0.27.0"
+    "typedoc": "^0.28.0"
   },
   "scripts": {
     "build": "webpack && tsup",
