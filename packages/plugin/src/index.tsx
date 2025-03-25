@@ -13,7 +13,7 @@ export const load = (app: Application): void => {
 
 	app.renderer.hooks.on(
 		`body.end`,
-		(context): JSX.Element => <script src={context.relativeURL(`assets/hierarchy.js`)} />,
+		(context): JSX.Element => <script src={context.relativeURL(`assets/hierarchy-theme.js`)} />,
 	);
 
 	app.renderer.defineTheme(`hierarchy`, OverrideTheme);

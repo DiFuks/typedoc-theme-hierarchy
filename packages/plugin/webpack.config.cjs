@@ -15,7 +15,7 @@ const config = {
 	mode: `production`,
 	entry: `./assets/js/custom.ts`,
 	output: {
-		filename: `hierarchy.js`,
+		filename: `hierarchy-theme.js`,
 		path: path.resolve(process.cwd(), `dist/assets`),
 	},
 	plugins: [
