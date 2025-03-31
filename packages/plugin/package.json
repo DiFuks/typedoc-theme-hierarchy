@@ -41,7 +41,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "^9.4.4",
-    "tsup": "^8.3.5",
+    "tsup": "^8.4.0",
     "typedoc": "0.28.1",
     "typescript": "5.8.2",
     "webpack": "5.92.1",

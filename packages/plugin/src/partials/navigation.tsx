@@ -16,12 +16,13 @@ interface IDeclarationItem {
 	url?: string;
 }
 
-interface IVirtualFileItem extends DeclarationReflection {
-	title: string;
-	children: DeclarationReflection[];
+declare module 'typedoc' {
+	interface DeclarationReflection {
+		title?: string;
+	}
 }
 
-type IItem = IDeclarationItem | IVirtualFileItem;
+type IItem = IDeclarationItem | DeclarationReflection;
 
 interface ICategory {
 	id: string;
@@ -99,14 +100,15 @@ const Navigation = ({
 		))}
 		{items.map(item => (
 			<li>
-				<Item {...item} context={context} />
+				<Item item={item} context={context} />
 			</li>
 		))}
 	</ul>
 );
 
 const Item = (
-	item: IItem & {
+	{ item, context  }: {
+		item: IItem;
 		context: DefaultThemeRenderContext;
 	},
 ): JSX.Element => {
@@ -115,20 +117,20 @@ const Item = (
 			<>
 				<a
 					class='category__link js-category-link category__link--ts'
-					href={item.context.urlTo(item)}
-					data-id={item.url && `/${item.url}`}
+					href={context.urlTo(item)}
+					data-id={`/${context.router.getFullUrl(item)}`}
 				>
 					{item.title}
 				</a>
 				<ul>
-					{item.children.map(subItem => (
+					{item.children?.map(subItem => (
 						<li>
 							<a
 								class='category__link js-category-link'
-								href={item.context.urlTo(subItem)}
-								data-id={subItem.url && `/${subItem.url}`}
+								href={context.urlTo(subItem)}
+								data-id={`/${context.router.getFullUrl(subItem)}`}
 							>
-								{item.context.icons[subItem.kind]()}
+								{context.icons[subItem.kind]()}
 								{subItem.name}
 							</a>
 						</li>
@@ -146,10 +148,10 @@ const Item = (
 					<li>
 						<a
 							class='category__link js-category-link'
-							href={item.context.urlTo(subItem)}
-							data-id={subItem.url && `/${subItem.url}`}
+							href={context.urlTo(subItem)}
+							data-id={`/${context.router.getFullUrl(subItem)}`}
 						>
-							{item.context.icons[subItem.kind]()}
+							{context.icons[subItem.kind]()}
 							{subItem.name}
 						</a>
 					</li>
@@ -187,11 +189,10 @@ const addToCategory = (category: ICategory, item: DeclarationReflection, titleSp
 	if (idx === titleSplit.length - 1) {
 		// Если элементом является модуль (файл), то файлом считается он. Актуально для Expand мода
 		if (item.kind === ReflectionKind.Module) {
-			category.items.push({
-				...item,
-				title: titleSplit[idx] || ``,
-				children: item.children || [],
-			});
+			item.title = titleSplit[idx] || ``;
+			item.children = item.children || [];
+
+			category.items.push(item);
 
 			return;
 		}
@@ -208,7 +209,7 @@ const addToCategory = (category: ICategory, item: DeclarationReflection, titleSp
 			return;
 		}
 
-		existsFile.children.push(item);
+		existsFile.children?.push(item);
 
 		return;
 	}

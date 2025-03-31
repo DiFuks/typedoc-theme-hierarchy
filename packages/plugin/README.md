@@ -15,6 +15,8 @@ The plugin supports only `expand` and `resolve` values for the `entryPointStrate
 ## Installing
 
 ```bash
+# For typedoc ^0.28.0
+npm i typedoc-theme-hierarchy@^6.0.0 -D
 
 # For typedoc ^0.26.0 || ^0.27.0
 npm i typedoc-theme-hierarchy@^5.0.0 -D
