@@ -1,6 +1,6 @@
 import { type Application, JSX } from 'typedoc';
 
-import { OverrideTheme } from './themes/OverrideTheme';
+import { OverrideTheme } from './themes/OverrideTheme.js';
 
 /**
  * Инициализирует плагин с темой.

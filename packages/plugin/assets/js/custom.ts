@@ -1,4 +1,4 @@
-import { HierarchyManager } from './HierarchyManager';
+import { HierarchyManager } from './HierarchyManager.js';
 
 import '../css/custom.css';
 

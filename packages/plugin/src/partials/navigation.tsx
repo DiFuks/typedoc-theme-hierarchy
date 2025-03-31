@@ -1,7 +1,15 @@
 import path from 'path';
 import * as process from 'process';
-import { type DefaultThemeRenderContext, JSX, type PageEvent, type Reflection, ReflectionKind } from 'typedoc';
-import { type DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
+import {
+	type DeclarationReflection,
+	type DefaultThemeRenderContext,
+	JSX,
+	type PageEvent,
+	type Reflection,
+	ReflectionKind,
+} from 'typedoc';
+
+import { type OverrideThemeContext } from '../themes/OverrideThemeContext.js';
 
 interface IDeclarationItem {
 	title: string;
@@ -9,12 +17,13 @@ interface IDeclarationItem {
 	url?: string;
 }
 
-interface IVirtualFileItem extends DeclarationReflection {
-	title: string;
-	children: DeclarationReflection[];
+declare module 'typedoc' {
+	export interface DeclarationReflection {
+		title?: string;
+	}
 }
 
-type IItem = IDeclarationItem | IVirtualFileItem;
+type IItem = IDeclarationItem | DeclarationReflection;
 
 interface ICategory {
 	id: string;
@@ -23,7 +32,7 @@ interface ICategory {
 }
 
 export const navigation =
-	(context: DefaultThemeRenderContext) =>
+	(context: OverrideThemeContext) =>
 	(props: PageEvent<Reflection>): JSX.Element => {
 		const categories = formatFileHierarchy(props.model.project.children || []);
 
@@ -92,36 +101,32 @@ const Navigation = ({
 		))}
 		{items.map(item => (
 			<li>
-				<Item {...item} context={context} />
+				<Item item={item} context={context} />
 			</li>
 		))}
 	</ul>
 );
 
-const Item = (
-	item: IItem & {
-		context: DefaultThemeRenderContext;
-	},
-): JSX.Element => {
+const Item = ({ item, context }: { item: IItem; context: DefaultThemeRenderContext }): JSX.Element => {
 	if (`id` in item) {
 		return (
 			<>
 				<a
 					class='category__link js-category-link category__link--ts'
-					href={item.context.urlTo(item)}
-					data-id={item.url && `/${item.url}`}
+					href={context.urlTo(item)}
+					data-id={`/${context.router.getFullUrl(item)}`}
 				>
 					{item.title}
 				</a>
 				<ul>
-					{item.children.map(subItem => (
+					{item.children?.map(subItem => (
 						<li>
 							<a
 								class='category__link js-category-link'
-								href={item.context.urlTo(subItem)}
-								data-id={subItem.url && `/${subItem.url}`}
+								href={context.urlTo(subItem)}
+								data-id={`/${context.router.getFullUrl(subItem)}`}
 							>
-								{item.context.icons[subItem.kind]()}
+								{context.icons[subItem.kind]()}
 								{subItem.name}
 							</a>
 						</li>
@@ -139,10 +144,10 @@ const Item = (
 					<li>
 						<a
 							class='category__link js-category-link'
-							href={item.context.urlTo(subItem)}
-							data-id={subItem.url && `/${subItem.url}`}
+							href={context.urlTo(subItem)}
+							data-id={`/${context.router.getFullUrl(subItem)}`}
 						>
-							{item.context.icons[subItem.kind]()}
+							{context.icons[subItem.kind]()}
 							{subItem.name}
 						</a>
 					</li>
@@ -180,11 +185,10 @@ const addToCategory = (category: ICategory, item: DeclarationReflection, titleSp
 	if (idx === titleSplit.length - 1) {
 		// Если элементом является модуль (файл), то файлом считается он. Актуально для Expand мода
 		if (item.kind === ReflectionKind.Module) {
-			category.items.push({
-				...item,
-				title: titleSplit[idx] || ``,
-				children: item.children || [],
-			});
+			item.title = titleSplit[idx] || ``;
+			item.children = item.children || [];
+
+			category.items.push(item);
 
 			return;
 		}
@@ -201,7 +205,7 @@ const addToCategory = (category: ICategory, item: DeclarationReflection, titleSp
 			return;
 		}
 
-		existsFile.children.push(item);
+		existsFile.children?.push(item);
 
 		return;
 	}

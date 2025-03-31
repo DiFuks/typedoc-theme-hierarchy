@@ -45,6 +45,9 @@ const config = {
 	},
 	resolve: {
 		extensions: [`.tsx`, `.ts`, `.js`],
+		extensionAlias: {
+			'.js': ['.js', '.ts'],
+		},
 	},
 };
 

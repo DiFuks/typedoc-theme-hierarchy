@@ -6,8 +6,8 @@
   },
   "devDependencies": {
     "http-server": "14.1.1",
-    "typedoc": "0.27.5",
+    "typedoc": "0.28.1",
     "typedoc-theme-hierarchy": "workspace:*",
-    "typescript": "5.2.2"
+    "typescript": "5.8.2"
   }
 }
