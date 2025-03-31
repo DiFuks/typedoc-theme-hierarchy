@@ -1,6 +1,6 @@
 import fse from 'fs-extra';
 import path from 'path';
-import { DefaultTheme, type PageEvent, type Reflection, Renderer, RendererEvent } from 'typedoc';
+import { DefaultTheme, type PageEvent, type Reflection, type Renderer, RendererEvent } from 'typedoc';
 
 import { OverrideThemeContext } from './OverrideThemeContext.js';
 

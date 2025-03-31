@@ -1,13 +1,14 @@
 import path from 'path';
 import * as process from 'process';
 import {
-	DeclarationReflection,
+	type DeclarationReflection,
 	type DefaultThemeRenderContext,
 	JSX,
 	type PageEvent,
 	type Reflection,
 	ReflectionKind,
 } from 'typedoc';
+
 import { type OverrideThemeContext } from '../themes/OverrideThemeContext.js';
 
 interface IDeclarationItem {
@@ -17,7 +18,7 @@ interface IDeclarationItem {
 }
 
 declare module 'typedoc' {
-	interface DeclarationReflection {
+	export interface DeclarationReflection {
 		title?: string;
 	}
 }
@@ -106,12 +107,7 @@ const Navigation = ({
 	</ul>
 );
 
-const Item = (
-	{ item, context  }: {
-		item: IItem;
-		context: DefaultThemeRenderContext;
-	},
-): JSX.Element => {
+const Item = ({ item, context }: { item: IItem; context: DefaultThemeRenderContext }): JSX.Element => {
 	if (`id` in item) {
 		return (
 			<>
